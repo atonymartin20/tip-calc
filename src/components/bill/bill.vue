@@ -2,11 +2,11 @@
 	<div class='bill'>
 		<div class='top-portion-bill'>
 			<h3>Bill</h3>
-			<h3 class='hide-error-text' :class='[billTotal === 0 ? errorText : null]' >Can't be zero</h3>
+			<h3 class='hide-error-text' :class='[this.$store.state.billTotal === 0 ? errorText : null]' >Can't be zero</h3>
 		</div>
-		<div class='fake-input' :class='[billTotal === 0 ? errorTextInput : null]'>
+		<div class='fake-input' :class='[this.$store.state.billTotal === 0 ? errorTextInput : null]'>
 			<img src="../../assets/icon-dollar.svg">
-			<input type='number' :value='billTotal' @input="update" placeholder='0' :class='[billTotal === 0 ? inputError : null]' /> 
+			<input type='number' :value='this.$store.state.billTotal' @input="update" placeholder='0' :class='[this.$store.state.billTotal === 0 ? inputError : null]' /> 
 		</div>
     </div>
 </template>
@@ -16,7 +16,6 @@
 		name: 'bill',
 		data () {
 			return {
-				billTotal: this.$store.state.billTotal,
 				errorText: 'error-text',
 				errorTextInput: 'fake-input-error',
 				inputError: 'input-error'
@@ -27,6 +26,7 @@
 				this.billTotal = Number(event.target.value)
 				this.input = event.target.value;
 				this.$store.commit('UPDATE_BILL_TOTAL', Number(this.input))
+				this.$store.commit('UPDATE_TOTAL_SECTION')
 				return {
 					billTotal: this.input
 				}

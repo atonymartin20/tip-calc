@@ -2,11 +2,11 @@
 	<div class='number-of-people'>
 		<div class='top-portion-bill'>
 			<h3>Number of People</h3>
-			<h3 class='hide-error-text' :class='[people === 0 ? errorText : null]' >Can't be zero</h3>
+			<h3 class='hide-error-text' :class='[this.$store.state.numberOfPeople === 0 ? errorText : null]' >Can't be zero</h3>
 		</div>
-		<div class='fake-input' :class='[people === 0 ? errorTextInput : null]'>
+		<div class='fake-input' :class='[this.$store.state.numberOfPeople === 0 ? errorTextInput : null]'>
 			<img src="../../assets/icon-person.svg">
-			<input type='number' :value='people' @input="update" placeholder='0' :class='[people === 0 ? inputError : null]' /> 
+			<input type='number' :value='this.$store.state.numberOfPeople' @input="update" placeholder='0' :class='[this.$store.state.numberOfPeople === 0 ? inputError : null]' /> 
 		</div>
     </div>
 </template>
@@ -16,7 +16,6 @@
 		name: 'numberOfPeople',
 		data () {
 			return {
-				people: this.$store.state.numberOfPeople,
 				errorText: 'error-text',
 				errorTextInput: 'fake-input-error',
 				inputError: 'input-error'
@@ -26,7 +25,8 @@
 			update: (function(event) {
 				this.people = Number(event.target.value)
 				this.input = event.target.value;
-				this.$store.commit('UPDATE_TIP_PERCENTAGE', Number(this.input))
+				this.$store.commit('UPDATE_NUMBER_OF_PEOPLE', Number(this.input))
+				this.$store.commit('UPDATE_TOTAL_SECTION')
 				return {
 					people: this.input
 				}
