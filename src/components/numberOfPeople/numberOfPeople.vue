@@ -6,7 +6,7 @@
 		</div>
 		<div class='fake-input' :class='[people === 0 ? errorTextInput : null]'>
 			<img src="../../assets/icon-person.svg">
-			<input :value='people' @input="update" placeholder='0' :class='[people === 0 ? inputError : null]' /> 
+			<input type='number' :value='people' @input="update" placeholder='0' :class='[people === 0 ? inputError : null]' /> 
 		</div>
     </div>
 </template>
@@ -16,7 +16,7 @@
 		name: 'numberOfPeople',
 		data () {
 			return {
-				people: null,
+				people: this.$store.state.numberOfPeople,
 				errorText: 'error-text',
 				errorTextInput: 'fake-input-error',
 				inputError: 'input-error'
@@ -26,6 +26,7 @@
 			update: (function(event) {
 				this.people = Number(event.target.value)
 				this.input = event.target.value;
+				this.$store.commit('UPDATE_TIP_PERCENTAGE', Number(this.input))
 				return {
 					people: this.input
 				}
