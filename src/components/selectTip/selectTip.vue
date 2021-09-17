@@ -3,11 +3,9 @@
 		<h3>Select Tip %</h3>
 
         <div class='tip-amounts-container'>
-            <!-- <button v-for='tip in tipAmounts' v-bind:key='tip' :tip='tip' class='tip-button' :class='[activeTip === tip ? activeClass: "active-button"]' v-on:click='changeActiveTip(tip, $event)'>{{ tip }}%</button> -->
 			<button v-for='tip in tipAmounts' v-bind:key='tip' :tip='tip' class='tip-button' :class='[activeTip === tip ? activeButton : null]' v-on:click='changeActiveTip(tip, $event)'>{{ tip }}%</button>
 
-			<span class='input-holder'><input placeholder='Custom' v-on:click='changeActiveTip(tip, $event)' /></span>
-
+			<span class='input-holder'><input type='number' :value='this.$store.state.customTipAmount' @input="update" placeholder='Custom' /></span>
         </div>
     </div>
 </template>
@@ -19,8 +17,9 @@
 		data () {
 			return {
 				tipAmounts: [5, 10, 15, 25, 50],
-				activeTip: null,
-				activeButton: 'active-button'
+				activeTip: this.$store.state.activeTipPercent,
+				activeButton: 'active-button',
+
 			}
 		},
 		methods: {
@@ -28,12 +27,19 @@
 				if (event) {
 					event.preventDefault()
 				}
-				this.activeTip = value;
-				return {
-					activeTip: value
-				}
-
+				this.activeTip = value
+				this.$store.commit('UPDATE_TIP_PERCENTAGE', Number(value))
+				this.$store.commit('UPDATE_TOTAL_SECTION')
 			},
+			update: (function(event) {
+				this.customTipAmount = Number(event.target.value)
+				this.input = event.target.value;
+				this.$store.commit('UPDATE_CUSTOM_TIP_PERCENTAGE', Number(this.customTipAmount))
+				this.changeActiveTip(this.customTipAmount)
+				return {
+					customTipAmount: this.input
+				}
+			})
 		}
 	}
 </script>
