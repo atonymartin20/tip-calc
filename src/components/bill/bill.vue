@@ -6,7 +6,7 @@
 		</div>
 		<div class='fake-input' :class='[billTotal === 0 ? errorTextInput : null]'>
 			<img src="../../assets/icon-dollar.svg">
-			<input :value='billTotal' @input="update" placeholder='0' :class='[billTotal === 0 ? inputError : null]' /> 
+			<input type='number' :value='billTotal' @input="update" placeholder='0' :class='[billTotal === 0 ? inputError : null]' /> 
 		</div>
     </div>
 </template>
@@ -16,7 +16,7 @@
 		name: 'bill',
 		data () {
 			return {
-				billTotal: null,
+				billTotal: this.$store.state.billTotal,
 				errorText: 'error-text',
 				errorTextInput: 'fake-input-error',
 				inputError: 'input-error'
@@ -26,6 +26,7 @@
 			update: (function(event) {
 				this.billTotal = Number(event.target.value)
 				this.input = event.target.value;
+				this.$store.commit('UPDATE_BILL_TOTAL', Number(this.input))
 				return {
 					billTotal: this.input
 				}
