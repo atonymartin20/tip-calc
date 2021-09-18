@@ -24,6 +24,15 @@
         height: 388px;
         display: flex;
         flex-direction: column;
+        box-sizing: border-box;
         justify-content: space-between;
+    }
+
+    @media (max-width: 720px) {
+        .left-side {
+            max-width: 720px;
+            padding: 0px 8px;
+            height: 436px;
+        }
     }
 </style>

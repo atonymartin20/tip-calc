@@ -32,4 +32,11 @@
 		flex-direction: column;
 		background: #C5E4E7;
 	}
+
+	@media (max-width: 720px) {
+		#app {
+			height: 933px;
+			justify-content: flex-start;
+		}
+	}
 </style>
