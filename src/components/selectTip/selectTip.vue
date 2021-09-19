@@ -155,4 +155,82 @@
 		caret-color: #26C2AE;
 		outline: none;
 	}
+
+	@media (max-width: 755px) {
+		.tip-container {
+			max-width: 350px;
+		}
+
+		.tip-button {
+			width: 100px;
+		}
+
+		.active-button {
+			width: 100px;
+		}
+
+		.input-holder {
+			width: 100px;
+		}
+
+		input::placeholder {
+			padding-left: 0px;
+		}
+    }
+
+	@media (max-width: 720px) {
+		.tip-container {
+			max-width: 720px;
+			height: 216px;
+		}
+
+		.tip-amounts-container {
+			max-width: 720px;
+			height: 176px;
+		}
+
+		.tip-button {
+			width: 146.63px;
+		}
+
+		.active-button {
+			width: 146.63px;
+		}
+
+		.input-holder {
+			width: 146.63px;
+		}
+
+		input::placeholder {
+			padding-left: 8px;
+		}
+	}
+
+	@media (max-width: 365px) {
+		.tip-button {
+			width: 130px;
+		}
+
+		.active-button {
+			width: 130px;
+		}
+
+		.input-holder {
+			width: 130px;
+		}
+	}
+
+	@media (max-width: 335px) {
+		.tip-button {
+			width: 120px;
+		}
+
+		.active-button {
+			width: 120px;
+		}
+
+		.input-holder {
+			width: 120px;
+		}
+	}
 </style>
