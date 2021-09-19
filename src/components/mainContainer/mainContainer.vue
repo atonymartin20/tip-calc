@@ -29,5 +29,23 @@
         box-sizing: border-box;
         justify-content: space-between;
         align-items: center;
+
     }
+
+    @media (max-width: 875px) {
+        .main-container {
+            padding: 32px 10px 32px 10px;
+        }
+    }
+
+    @media (max-width: 720px) {
+        .main-container {
+            flex-direction: column;
+            height: 789px;
+            margin-bottom: 0px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            padding: 32px 24px 32px 24px;
+        }
+	}
 </style>

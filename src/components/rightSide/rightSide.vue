@@ -101,7 +101,7 @@
         font-family: 'Space Mono';
         font-style: normal;
         font-weight: bold;
-        font-size: 48px;
+        font-size: 4.8rem;
         line-height: 71px;
         text-align: right;
         letter-spacing: -1px;
@@ -131,5 +131,53 @@
     button:disabled {
         background: #0D686D;
         color: rgba(0,71,75,0.35)
+    }
+
+    @media (max-width: 815px) {
+        .right-side {
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 720px) {
+        .right-side {
+            max-width: 720px;
+            height: 257px;   
+            padding: 37px 22px 24px 24px;
+        }
+
+        .tip-amount-div {
+            height: 55px;
+            margin-bottom: 10px;
+        }
+
+        .tip-total-div {
+            height: 55px;
+        }
+
+        h1 {
+            line-height: 55px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .tip-amount-div {
+            height: 48px;
+            margin-bottom: 20px;
+        }
+
+        .tip-total-div {
+            height: 48px;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            line-height: 47px;
+            text-align: right;
+            letter-spacing: -0.666667px;
+            color: #26C2AE;
+        }
     }
 </style>
