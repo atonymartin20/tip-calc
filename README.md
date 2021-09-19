@@ -1,21 +1,19 @@
 # tip-calc
 
-> A Vue.js project
+Tip-calc is a simple tool that allows users to divide a bill easily.  Simply input the amount of the bill, the percentage of the bill you would like to tip, and the amount of people sharing the bill.  Tip-calc will divide the bill equally between the amount of people.
+Photosnap is a new platform for photographers and visual storytellers to share their photos.
 
-## Build Setup
+This repository uses frontend infomation that can be found in the [Front End Mentor README](./frontendMentorREADME.md)
 
-``` bash
-# install dependencies
-npm install
+Design files for this repository were provided by frontendMentor.  Design files were provided in the form of Figma files.
 
-# serve with hot reload at localhost:8080
-npm run dev
+# Resources
 
-# build for production with minification
-npm run build
+- [Front End Site - Hosted on Netlify](https://tip-calc-adm.netlify.app/)
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+<br />
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Tech Stack
+### Frontend
+* VueJS
+* Vuex
